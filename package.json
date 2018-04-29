@@ -1,10 +1,11 @@
 {
-  "name": "fmc",
-  "version": "1.0.0",
+  "name": "react-flex-container",
+  "version": "0.5.0",
   "main": "index.js",
   "author": "Ahmad Saleem",
+  "homepage": "https://github.com/Ahmad-Saleem/react-flex",
   "license": "MIT",
-  "private": true,
+  "private": false,
   "scripts": {
     "start": "webpack-dev-server --history-api-fallback --inline --progress",
     "build": "webpack-dev-server --history-api-fallback --inline --progress"
