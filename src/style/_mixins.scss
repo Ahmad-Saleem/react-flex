@@ -1,0 +1,62 @@
+@mixin border-radius($radius) {
+    -webkit-border-radius: $radius;
+       -moz-border-radius: $radius;
+        -ms-border-radius: $radius;
+            border-radius: $radius;
+  }
+// USAGE
+//   .box { @include border-radius(10px); }
+
+@mixin filter-opacity($value){
+    -webkit-filter: opacity($value);
+    filter: opacity($value);
+}
+
+@mixin box-shadow() {
+    -webkit-box-shadow:  0 2px 2px 0 rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.08);
+    box-shadow:  0 2px 2px 0 rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.08);
+}
+
+@mixin box-shadow-active() {
+    -webkit-box-shadow:  0 4px 4px 0 rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.08);
+    box-shadow:  0 4px 4px 0 rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.08);
+}
+
+@mixin transition(){
+    transition: color .5s ease-in-out,background-color 1s ease-in,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    -webkit-transition: color .5s ease-in-out,background-color 1s ease-in,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+@mixin gradient($type, $sc, $ec, $d : null) {
+    // $deg : just for Diagonal Type.
+    // Horizontal 
+    $startColor : unquote($sc);
+    $endColor: unquote($ec);
+    $deg: unquote($d);
+    
+    @if $type == "H" {
+        background: $startColor;
+        background: -moz-linear-gradient(left, $startColor 0%, $endColor 100%);
+        background: -webkit-linear-gradient(left, $startColor 0%, $endColor 100%);
+        background: linear-gradient(to right, $startColor 0%, $endColor 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr= $startColor, endColorstr= $endColor, GradientType=1 );                               
+    }
+   @else if $type == "V" { // Vertical
+        background: -moz-linear-gradient(left, $startColor 0%, $endColor 100%);
+        background: -webkit-linear-gradient(left, $startColor 0%, $endColor 100%);
+        background: linear-gradient(to bottom, $startColor 0%, $endColor 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr= $startColor, endColorstr= $endColor, GradientType=0 );                               
+   }
+    @else if $type == "R" { // Radial 
+        background: -moz-radial-gradient(center, ellipse cover, $startColor 0%, $endColor 100%);
+        background: -webkit-radial-gradient(center, ellipse cover, $startColor 0%, $endColor 100%);
+        background: radial-gradient(ellipse at center, $startColor 0%, $endColor 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr= $startColor, endColorstr= $endColor, GradientType=1 );                               
+    }                     
+    @else if $type == "D" { // Diagonal        
+        background: -moz-linear-gradient(72deg, $startColor 0%, $endColor 100%);
+        background: -webkit-linear-gradient(72deg, $startColor 0%, $endColor 100%);
+        background: linear-gradient(72deg, $startColor 0%, $endColor 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr= $startColor, endColorstr= $endColor, GradientType=1 );                               
+    }                          
+}

@@ -1,0 +1,18 @@
+$btnBorderRadius: 5px;
+$shadowBoxButton: 0 0 4px 0 rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.19);
+$shadowBoxButtonActive: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+$shadowTextButton: none;
+
+// HEADER
+$heightTop: 30px;
+$heightHeader: 135px;
+
+
+body, main {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+.main {
+    top: $heightHeader;
+}
